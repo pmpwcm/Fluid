@@ -376,7 +376,7 @@ function init() {
   // Create color map for the tea/milk gradient
   vizColorMap = new ColorMap();
   vizColorMap.addColorStop(0.0, 0, 0, 0);
-  vizColorMap.addColorStop(0.3, 69.0/255.0, 36.0/255.0, 7.0/255.0);
+  vizColorMap.addColorStop(0.3, 0, 238, 238);
   vizColorMap.addColorStop(1.0, 1.0, 1.0, 1.0);
 
   // Create color map defining initial data breakdown
