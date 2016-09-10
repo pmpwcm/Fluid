@@ -1,3 +1,1 @@
-A Pen created at CodePen.io. You can find this one at http://codepen.io/pmcmpw/pen/ZpYzmE.
-
- One of my favorite things is watching the patterns that form in a fresh Thai iced tea when you first stir in some milk. It's a beautiful example of fluid dynamics in action. Inspired by the visual, I created a 2d fluid dynamics simulator in javascript, based off of Jos Stam's paper, "Real-Time Fluid Dynamics for Games" (2003). And then I put it on a cup, and I put that cup in freaking space. In this demo, you can interact with the tea by dragging your mouse over it, and watch the glorious mixture. GP-GPU shaders are used for some tinting effects, but the fluid solving is on the CPU, in javascript.
+test
