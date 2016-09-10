@@ -1,0 +1,19 @@
+body {
+  background-color: black;
+  overflow: hidden;
+  margin: 0;
+}
+
+#base {
+  position: relative;
+}
+
+#description {
+  color: white;
+  font-family: sans-serif;
+  position: absolute;
+  width: 100%;
+  bottom: 10%;
+  text-align: center;
+  text-shadow: 2px 2px #221;
+}
