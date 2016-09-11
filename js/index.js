@@ -79,7 +79,7 @@ Solver.prototype.linearSolve = function(x, x0, b, a, c) {
   for (var k=0; k<20; k++) {
     for (var i=1; i<=this.N; i++) {
       for (var j=1; j<=this.N; j++) {
-        x.values[i][j] = (x0.values[i][j] + 
+        x.values[i][j] = (x0.values[i][j] +
                           a*(x.values[i-1][j] + x.values[i+1][j] +
                              x.values[i][j-1] + x.values[i][j+1]))/c;
       }
@@ -102,9 +102,9 @@ Solver.prototype.advect = function(d, d0, u, v, b, dt) {
 
   for(var i=1; i<=this.N; i++) {
     for(var j=1; j<=this.N; j++) {
-      x = i - dt0*u.values[i][j]; 
+      x = i - dt0*u.values[i][j];
       y = j - dt0*v.values[i][j];
-      if (x<0.5) x=0.5; 
+      if (x<0.5) x=0.5;
       if (x>N+0.5) x=N+0.5;
       i0 = Math.floor(x); i1 = i0+1;
 
@@ -158,12 +158,12 @@ Solver.prototype.densityStep = function(x, x0, u, v, diff, dt) {
 Solver.prototype.velocityStep = function(u, v, u0, v0, visc, dt) {
   u.addSource(u0, dt);
   v.addSource(v0, dt);
-  u0.swap(u); 
+  u0.swap(u);
   this.diffuse(u, u0, 3, visc, dt);
-  v0.swap(v); 
+  v0.swap(v);
   this.diffuse(v, v0, 3, visc, dt);
   this.project(u, v, u0, v0);
-  u0.swap(u); 
+  u0.swap(u);
   v0.swap(v);
   this.advect(u, u0, u0, v0, 1, dt);
   this.advect(v, v0, u0, v0, 2, dt);
@@ -211,7 +211,7 @@ ColorMap.prototype.addColorStop = function(pos, r, g, b) {
 
   this.stops[i] = {
     pos: pos,
-    r: r, 
+    r: r,
     g: g,
     b: b
   };
@@ -245,7 +245,7 @@ ColorMap.prototype.sample = function(t) {
 
 (function main() {
   THREE.ImageUtils.crossOrigin = "anonymous";
-  init(); 
+  init();
   initData(solver);
   animate();
 })();
@@ -303,7 +303,7 @@ function init() {
     var bgTex = THREE.ImageUtils.loadTexture("https://drive.google.com/file/d/0BwpF5xsAFjCYSzV5dHdWbVc1UUk/view?usp=sharing");
     var aspect = 1.6/2.5;
     var scale = 2.5;
-    var bgMaterial = new THREE.MeshBasicMaterial({ map: bgTex, depthWrite: false }); 
+    var bgMaterial = new THREE.MeshBasicMaterial({ map: bgTex, depthWrite: false });
     var bgGeo = new THREE.PlaneBufferGeometry(scale, scale*aspect, 1, 1);
     var bgMesh = new THREE.Mesh(bgGeo, bgMaterial);
     scene.add(bgMesh);
@@ -312,13 +312,13 @@ function init() {
   // Glow
   // {
   //   var size = 2.0;
-  //   var glowMat = new THREE.ShaderMaterial({ 
+  //   var glowMat = new THREE.ShaderMaterial({
   //     vertexShader: document.getElementById("shared_vert").textContent,
   //     fragmentShader: document.getElementById("glow_frag").textContent,
   //     blending: THREE.AdditiveBlending,
   //     depthWrite: false,
   //     transparent: true
-  //   }); 
+  //   });
   //   var glowGeo = new THREE.PlaneBufferGeometry(size, size, 1, 1);
   //   var glowMesh = new THREE.Mesh(glowGeo, glowMat);
   //   scene.add(glowMesh);
@@ -326,13 +326,13 @@ function init() {
 
   // Tea
   {
-    var teaMat = new THREE.ShaderMaterial({ 
+    var teaMat = new THREE.ShaderMaterial({
       vertexShader: document.getElementById("shared_vert").textContent,
       fragmentShader: document.getElementById("fluid_frag").textContent,
-      uniforms: { 
+      uniforms: {
         "texture": {
           type: "t",
-          value: renderTexture 
+          value: renderTexture
         },
         "reflection": {
           type: "t",
@@ -375,8 +375,9 @@ function init() {
 
   // Create color map for the tea/milk gradient
   vizColorMap = new ColorMap();
-  vizColorMap.addColorStop(0.0, 0, 0, 0);
-  vizColorMap.addColorStop(0.3, 69.0/255.0, 36.0/255.0, 7.0/255.0);
+  vizColorMap.addColorStop(0.3, 0, 0, 0);
+  vizColorMap.addColorStop(0.3, 0 ,0, 238);
+  vizColorMap.addColorStop(0.3, 0 ,0, 255);
   vizColorMap.addColorStop(1.0, 1.0, 1.0, 1.0);
 
   // Create color map defining initial data breakdown
@@ -421,7 +422,7 @@ function onMouseMove(event) {
 
   var x = Math.floor(mouseX * solver.N);
   var y = Math.floor(mouseY * solver.N);
-  solver.inject(x, y, 0.0, 50.0, dx*solver.N, dy*solver.N); 
+  solver.inject(x, y, 0.0, 50.0, dx*solver.N, dy*solver.N);
 }
 
 var lastTime = Date.now();
