@@ -384,7 +384,7 @@ function init() {
   densityColorMap = new ColorMap();
   densityColorMap.addColorStop(0.0, 0, 0, 0);
   densityColorMap.addColorStop(0.8, 0.5, 0.5, 0.5);
-  densityColorMap.addColorStop(0.8, 0.5, 0.5, 0.5);
+  densityColorMap.addColorStop(0.5, 0.5, 0.5, 0.5);
   densityColorMap.addColorStop(0.803, 1.0, 1.0, 1.0);
 
   // Events
