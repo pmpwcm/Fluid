@@ -375,8 +375,9 @@ function init() {
 
   // Create color map for the tea/milk gradient
   vizColorMap = new ColorMap();
-  vizColorMap.addColorStop(0.5, 0, 0, 0);
+  vizColorMap.addColorStop(0.3, 0, 0, 0);
   vizColorMap.addColorStop(0.3, 0 ,0, 238);
+  vizColorMap.addColorStop(0.3, 0 ,0, 255);
   vizColorMap.addColorStop(1.0, 1.0, 1.0, 1.0);
 
   // Create color map defining initial data breakdown
@@ -398,7 +399,7 @@ Number.prototype.clamp = function(low, high) {
 Number.prototype.lerp = function(low, high) {
   return (1.0-this)*low + this * high;
 }
-//motion
+
 function onMouseMove(event) {
   var bbox = container.getBoundingClientRect();
   var newMouseX = (event.clientX - bbox.left)/(bbox.right - bbox.left);
@@ -451,7 +452,6 @@ function updateTexture(solver, texture, colorMap) {
       imageData[(x + solver.N * y)*3 + 0] = color[0];
       imageData[(x + solver.N * y)*3 + 1] = color[1];
       imageData[(x + solver.N * y)*3 + 2] = color[2];
-
     }
   }
 
