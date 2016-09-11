@@ -400,7 +400,7 @@ Number.prototype.clamp = function(low, high) {
 Number.prototype.lerp = function(low, high) {
   return (1.0-this)*low + this * high;
 }
-
+//motion
 function onMouseMove(event) {
   var bbox = container.getBoundingClientRect();
   var newMouseX = (event.clientX - bbox.left)/(bbox.right - bbox.left);
@@ -453,6 +453,7 @@ function updateTexture(solver, texture, colorMap) {
       imageData[(x + solver.N * y)*3 + 0] = color[0];
       imageData[(x + solver.N * y)*3 + 1] = color[1];
       imageData[(x + solver.N * y)*3 + 2] = color[2];
+      imageData[(x + solver.N * y)*3 + 3] = color[3];
     }
   }
 
