@@ -377,12 +377,13 @@ function init() {
   vizColorMap = new ColorMap();
   vizColorMap.addColorStop(0.3, 0, 0, 0);
   vizColorMap.addColorStop(0.3, 0 ,0, 238);
-  vizColorMap.addColorStop(0.3, 0 ,0, 255);
+  vizColorMap.addColorStop(0.3, 0 ,0, 255;
   vizColorMap.addColorStop(1.0, 1.0, 1.0, 1.0);
 
   // Create color map defining initial data breakdown
   densityColorMap = new ColorMap();
   densityColorMap.addColorStop(0.0, 0, 0, 0);
+  densityColorMap.addColorStop(0.8, 0.5, 0.5, 0.5);
   densityColorMap.addColorStop(0.8, 0.5, 0.5, 0.5);
   densityColorMap.addColorStop(0.803, 1.0, 1.0, 1.0);
 
