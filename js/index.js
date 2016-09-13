@@ -1,3 +1,14 @@
+var kinectSock = require('openni-browser')();
+var ecstatic = require('ecstatic')(__dirname + '/public');
+
+var server = require('http').createServer(ecstatic);
+
+kinectSock.install(server, '/skeleton');
+
+server.listen(8080, function() {
+  console.log('kinect socks server listening...');
+});
+
 var Field = function(N) {
   this.N = N;
   this.values = new Array(N+2);
@@ -376,7 +387,7 @@ function init() {
   // Create color map for the tea/milk gradient
   vizColorMap = new ColorMap();
   vizColorMap.addColorStop(0.0, 0, 0, 0);
-  vizColorMap.addColorStop(0.3, 0 ,0, 238);
+  vizColorMap.addColorStop(0.3, 0 ,238, 238);
   vizColorMap.addColorStop(1.0, 1.0, 1.0, 1.0);
 
   // Create color map defining initial data breakdown

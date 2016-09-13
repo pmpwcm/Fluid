@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8">
     <title>FLUID</title>
-    
-    
-    
-    
+
+
+
+
         <link rel="stylesheet" href="css/style.css">
 
-    
-    
-    
+
+
+
   </head>
 
   <body>
@@ -90,7 +90,7 @@
     luminance += 0.15;
 
     vec2 reflUV = N.xy / 2.0 + vec2(0.5);
-    vec3 color = texture2D(texture, vUV).rgb * (vec3(0.75*luminance) + 0.25*texture2D(reflection, vUV).rgb) 
+    vec3 color = texture2D(texture, vUV).rgb * (vec3(0.75*luminance) + 0.25*texture2D(reflection, vUV).rgb)
     + vec3(specular) * texture2D(reflection, reflUV).rgb;
     gl_FragColor = vec4(color, 1.0);
   }
@@ -131,8 +131,8 @@
 
         <script src="js/index.js"></script>
 
-    
-    
-    
+
+        <script src="openni.js"></script>
+
   </body>
 </html>
