@@ -43,7 +43,7 @@ window.openni = module.exports = function(serverPath) {
     "right_ankle",
     "right_foot"
   ];
-  
+
   jointNames.forEach(function(jointName) {
     kinect.on(jointName, function(userId, x, y, z) {
       console.log('The joint ' + jointName + ' of user ' + userId +
