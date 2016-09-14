@@ -1,13 +1,13 @@
-//var kinectSock = require('openni-browser')();
-//var ecstatic = require('ecstatic')(__dirname + '/public');
+var kinectSock = require('openni-browser')();
+var ecstatic = require('ecstatic')(__dirname + '/public');
 
-//var server = require('http').createServer(ecstatic);
+var server = require('http').createServer(ecstatic);
 
-//kinectSock.install(server, '/skeleton');
+kinectSock.install(server, '/skeleton');
 
-//server.listen(8080, function() {
-//  console.log('kinect socks server listening...');
-//});
+server.listen(8000, function() {
+ console.log('kinect socks server listening...');
+});
 
 var Field = function(N) {
   this.N = N;

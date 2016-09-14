@@ -4,6 +4,19 @@ var emitStream = require('emit-stream');
 var skeleton = openni('/skeleton');
 window.openni = module.exports = function(serverPath) {
 
+  [
+    'newuser',
+    'lostuser',
+    'posedetected',
+    'calibrationstart',
+    'calibrationsuccess',
+    'calibrationfail'
+  ].forEach(function(userEventType) {
+    sleleton.on(userEventType, function(userId) {
+      console.log(userEventType + ' (' + userId + ')');
+    });
+  });
+
   var jointNames = [
     "head",
     "neck",
@@ -30,7 +43,13 @@ window.openni = module.exports = function(serverPath) {
     "right_ankle",
     "right_foot"
   ];
-
+  
+  jointNames.forEach(function(jointName) {
+    kinect.on(jointName, function(userId, x, y, z) {
+      console.log('The joint ' + jointName + ' of user ' + userId +
+        ' moved to (' + x + ', ' + y + ', ' + z + ')');
+    });
+  });
   var sock = shoe(serverPath);
 
   var jsonStream = JSONStream.parse([true]);
